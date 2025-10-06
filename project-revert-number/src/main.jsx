@@ -15,6 +15,7 @@ function decrement(num) {
   if (num > 0) {
     return num - 1;
   } else {
+    clearInterval(interval)
     return 0;
   }
   // return num > 0 ? num - 1 : 0;
@@ -24,18 +25,22 @@ class UserNumber extends React.Component {
   constructor() {
     super();
     this.state = {
-      count: 15,
+      count: 5,
     };
   }
 
   componentDidMount() {
+    console.log("componentDidCatch");
     interval = setInterval(() => {
       this.setState({
         count: decrement(this.state.count),
       });
     }, 1000);
   }
+  
+  
   render() {
+    console.log("render");
     return (
       <div className="container">
         <p className="counter">number is reversing: {this.state.count}</p>
