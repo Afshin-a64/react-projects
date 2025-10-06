@@ -4,49 +4,13 @@ import "./index.css";
 import "./style.css";
 import App from "./App.jsx";
 
+import MyApp from "./MyApp.jsx";
+
 // createRoot(document.getElementById('root')).render(
 //   <StrictMode>
 //     <App />
 //   </StrictMode>,
 // )
 
-var interval;
-function decrement(num) {
-  if (num > 0) {
-    return num - 1;
-  } else {
-    clearInterval(interval)
-    return 0;
-  }
-  // return num > 0 ? num - 1 : 0;
-}
 
-class UserNumber extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 5,
-    };
-  }
-
-  componentDidMount() {
-    console.log("componentDidCatch");
-    interval = setInterval(() => {
-      this.setState({
-        count: decrement(this.state.count),
-      });
-    }, 1000);
-  }
-  
-  
-  render() {
-    console.log("render");
-    return (
-      <div className="container">
-        <p className="counter">number is reversing: {this.state.count}</p>
-      </div>
-    );
-  }
-}
-
-createRoot(document.getElementById("root")).render(<UserNumber />);
+createRoot(document.getElementById("root")).render(<MyApp />);
